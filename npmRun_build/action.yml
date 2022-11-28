@@ -1,0 +1,11 @@
+name: 'NPM support action'
+description: 'This is a composite action for node pakcage manager'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Npm install
+      run: npm install
+      shell: bash
+    - name: Npm run build
+      run: npm run build

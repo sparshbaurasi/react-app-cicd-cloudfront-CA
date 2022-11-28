@@ -9,5 +9,5 @@ runs:
   using: "composite"
   steps:
     - name: Cloud Front Invalidation
-      run: aws cloudfront create-invalidation --distribution-id ${{secrets.DISTRIBUTION_ID}} --paths "/*"
+      run: aws cloudfront create-invalidation --distribution-id ${{inputs.DISTRIBUTION_ID}} --paths "/*"
       shell: bash
