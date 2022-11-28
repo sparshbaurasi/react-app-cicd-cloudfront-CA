@@ -1,7 +1,7 @@
 name: Frontend to cloudfront
 on: 
   workflow_dispatch:
-  inputs:
+   inputs:
     BUCKET_NAME:
       type: string
       required: true
@@ -26,7 +26,7 @@ jobs:
     - name: S3 file upload
       uses: sparshbaurasi/react-app-cicd-cloudfront-CA/s3-upload-file@main
       with: 
-           Bucket_Name: ${{ inputs.BUCKET_NAME }}
+           Bucket_Name: ${{ github.event.inputs.BUCKET_NAME }}
     - name: Cloudfront invalidate
       uses: sparshbaurasi/react-app-cicd-cloudfront-CA/CloudFront_Invalidation@main
       with:
