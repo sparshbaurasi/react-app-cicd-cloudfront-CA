@@ -1,0 +1,13 @@
+name: 'Cloudfront invalidate action'
+description: 'This is a composite action for cloudfront invalidation'
+
+inputs:
+  DISTRIBUTION_ID:
+    description: 'Cloudfront distribution id'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Cloud Front Invalidation
+      run: aws cloudfront create-invalidation --distribution-id ${{secrets.DISTRIBUTION_ID}} --paths "/*"
+      shell: bash

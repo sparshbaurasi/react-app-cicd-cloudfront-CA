@@ -1,0 +1,13 @@
+name: 'S3 upload action for react app '
+description: 'This is a composite action for uploading file on s3 bucket'
+
+inputs:
+  Bucket_Name:
+    description: 'bucket name'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: S3-sync
+      run: aws s3 sync ./build s3://${{inputs.Bucket_Name}}
+      shell: bash
