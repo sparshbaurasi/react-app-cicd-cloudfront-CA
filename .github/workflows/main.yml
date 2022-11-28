@@ -20,8 +20,8 @@ jobs:
     - name: Configure AWS Creds
       uses: aws-actions/configure-aws-credentials@v1
       with:
-        role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
-        role-session-name: Idp-role-for-github
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: ap-south-1
     - name: S3 file upload
       uses: sparshbaurasi/react-app-cicd-cloudfront-CA/s3-upload-file@main
