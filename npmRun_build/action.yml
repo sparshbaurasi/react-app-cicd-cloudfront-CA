@@ -9,3 +9,4 @@ runs:
       shell: bash
     - name: Npm run build
       run: npm run build
+      shell: bash
